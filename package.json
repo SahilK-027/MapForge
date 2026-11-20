@@ -1,0 +1,23 @@
+{
+  "name": "mapforge",
+  "description": "Procedural terrain generator: tweak, preview in 2D/3D, export height and mask maps.",
+  "license": "MIT",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "node scripts/verify.mjs",
+    "bake": "node scripts/bake.mjs"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "vite": "^8.3.8"
+  }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MapForge · Procedural terrain generator</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M4 24 L12 10 L17 18 L21 13 L28 24 Z' fill='%23d4a24c'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" width="22" height="22"><path d="M4 24 L12 10 L17 18 L21 13 L28 24 Z" fill="currentColor" /></svg>
+        <span>MapForge</span><small>Procedural terrain generator</small>
+      </div>
+      <div class="seedbox" data-tip="Terrain seed.">
+        <span>Seed</span>
+        <input id="seed" type="number" step="1" />
+        <button id="dice" class="icon-btn" data-tip="Random seed (D)">⚄</button>
+      </div>
+      <select id="preset" class="presetsel" data-tip="Load a starting preset"></select>
+      <button id="regen" class="primary" data-tip="Regenerate (R)">Regenerate <kbd>R</kbd></button>
+      <label class="toggle" data-tip="Regenerate automatically after each change"><input id="auto" type="checkbox" checked /><span>Auto</span></label>
+      <div id="progress" class="progress"><i></i><span></span></div>
+      <div class="spacer"></div>
+      <span id="badge" class="badge"></span>
+      <button id="preset-load" class="ghost" data-tip="Import a preset JSON">Import</button>
+      <button id="preset-save" class="ghost" data-tip="Save current config as a preset JSON">Save preset</button>
+      <button id="reset-all" class="ghost" data-tip="Reset every parameter to the Island preset">Reset all</button>
+      <input id="preset-file" type="file" accept=".json,application/json" hidden />
+    </header>
+    <aside id="params" class="sidebar"></aside>
+    <main class="stage">
+      <div class="stagebar">
+        <div class="tabs">
+          <button class="tab on" data-tab="2d" data-tip="Top-down map (V)">Map</button>
+          <button class="tab" data-tab="3d" data-tip="3D perspective terrain, drag to orbit (V)">3D terrain</button>
+        </div>
+        <div id="layers" class="seg small"></div>
+        <div class="spacer"></div>
+        <span id="gen-time" class="mono dim"></span>
+      </div>
+      <div id="view2d" class="view"></div>
+      <div id="view3d" class="view" hidden></div>
+      <div id="tools3d" class="tools3d" hidden>
+          <span>Height</span>
+          <input id="exag" type="range" min="0.5" max="4" step="0.1" value="1" />
+          <span id="exagv" class="mono">1.0×</span>
+          <button id="cam-reset" class="ghost" data-tip="Reset camera">↺ View</button>
+        </div>
+      <div id="probe" class="probe mono" hidden></div>
+      <div class="hint dim">Scroll to zoom · drag to pan · double-click to fit · <kbd>1</kbd>–<kbd>6</kbd> layers · <kbd>E</kbd> export</div>
+    </main>
+    <aside id="export" class="exportbar"></aside>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

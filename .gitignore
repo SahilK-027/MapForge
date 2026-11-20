@@ -1,0 +1,6 @@
+node_modules
+dist
+baked
+.DS_Store
+*.mp4
+private/
